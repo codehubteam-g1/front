@@ -1,15 +1,13 @@
-<template class="has-background-danger clase2">
-    <div class=" has-background-danger clase2">
-    <form >
-    Email:<br>
-  <input type="email" name="email" v-model="user.email">
-  <br>
-  Password:<br>
-  <input type="password" name="password" v-model="user.password">
-  <br><br>
-  <input type="submit" value="Submit"  @click.prevent="handleSubmit">
-</form> 
-
+<template class="clase2">
+    <div class="clase2 columns centrarElemento">
+        <form class="column is-2 is-offset-5 has-text-centered" >
+            <div class="label has-text-white is-size-4"> Email: </div>
+        <input class="input is-rounded" type="email" name="email" v-model="user.email" placeholder="tucorreo@gmail.com">
+        <div class="label has-text-white is-size-4"> Password: </div>
+        <input class="input is-rounded" type="password" name="password" v-model="user.password">
+        <br></br>
+        <input class="button is-fullwidth is-link label has-text-white is-size-4" type="submit" value="Submit"  @click.prevent="handleSubmit">
+        </form> 
     </div>
 </template>
 
@@ -18,7 +16,7 @@ export default {
   data() {
     return {
       user: {
-        email: 'yonatan',
+        email: '',
         password: ''
       }
     }
@@ -36,6 +34,24 @@ export default {
 .clase2{
     position: absolute;
     height: 100%;
-    width: 100%
+    width: 100%;
+    background-image: url("https://recipes-secure-graphics.grocerywebsite.com/0_GraphicsRecipes/4589_4k.jpg");
+    background-size: 1920px 1080px;
+}
+
+.centrarElemento {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+div.label {
+    text-shadow: 1px 1px 2px #000000;
+    
+}
+
+input[type=submit] {
+    text-shadow: 1px 1px 2px #000000;
+    
 }
 </style>
