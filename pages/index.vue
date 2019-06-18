@@ -1,35 +1,17 @@
 <template>
-  <div class="container">
-    <div>
-      <logo />
-      <h1 class="title">
-        front
-      </h1>
-      <h2 class="subtitle">
-        Frontend of Rappiclone
-      </h2>
-      <div class="links">
-        <a
-          href="https://nuxtjs.org/"
-          target="_blank"
-          class="button--green"
-        >Documentation</a>
-        <a
-          href="https://github.com/nuxt/nuxt.js"
-          target="_blank"
-          class="button--grey"
-        >GitHub</a>
-      </div>
-    </div>
+  <div class="">
+    <main-menu></main-menu>
+    <div>Este es el index</div>
   </div>
 </template>
 
 <script>
 import Logo from '~/components/Logo.vue'
-
+import MainMenu from '../components/Menu'
 export default {
   components: {
-    Logo
+    Logo,
+    MainMenu
   }
 }
 </script>
