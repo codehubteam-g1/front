@@ -1,7 +1,7 @@
 <template class="clase2">
     <div class="clase2 columns centrarElemento">
         <form class="column is-2 is-offset-5 has-text-centered" >
-            <div class="label has-text-white is-size-4"> Email: </div>
+            <div class="label has-text-white is-size-4"> Email: {{ user.email }} </div>
         <input class="input is-rounded" type="email" name="email" v-model="user.email" placeholder="tucorreo@gmail.com">
         <div class="label has-text-white is-size-4"> Password: </div>
         <input class="input is-rounded" type="password" name="password" v-model="user.password">
@@ -16,7 +16,7 @@ export default {
   data() {
     return {
       user: {
-        email: '',
+        email: 'oscar@gmail.com',
         password: ''
       }
     }
