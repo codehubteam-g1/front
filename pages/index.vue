@@ -1,50 +1,68 @@
 <template>
-  <div class="">
-    <main-menu></main-menu>
-    <div>Este es el index</div>
+  <div id="background-container">
+    <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+    <div id="first-level-container">
+      <div id="second-level-container-left">
+        <div id="app-image-container">
+          <img src="../static/background-app-image.webp" alt="Logo de Rappi">
+        </div>
+      </div>
+
+      <div id="second-level-container-right">
+        <registrationForm/>
+      </div>
+    </div>
   </div>
 </template>
 
 <script>
-import Logo from '~/components/Logo.vue'
-import MainMenu from '../components/Menu'
+import registrationForm from "~/components/registrationForm";
+
 export default {
   components: {
-    Logo,
-    MainMenu
+    registrationForm
   }
-}
+};
 </script>
 
-<style>
-.container {
-  margin: 0 auto;
-  min-height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+<style scoped>
+#background-container {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
   text-align: center;
 }
 
-.title {
-  font-family: 'Quicksand', 'Source Sans Pro', -apple-system, BlinkMacSystemFont,
-    'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-  display: block;
-  font-weight: 300;
-  font-size: 100px;
-  color: #35495e;
-  letter-spacing: 1px;
+#first-level-container {
+  position: absolute;
+  display: inline-block;
+  height: 850px;
+  width: 1000px;
+  top: 50%;
+  left: 46%;
+  transform: translate(-50%, -50%);
+  /* background-color: blue; */
 }
 
-.subtitle {
-  font-weight: 300;
-  font-size: 42px;
-  color: #526488;
-  word-spacing: 5px;
-  padding-bottom: 15px;
+#app-image-container {
+  position: absolute;
+  width: 100%;
+  text-align: center;
+  top: 45%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
-.links {
-  padding-top: 15px;
+#second-level-container-left {
+  position: absolute;
+  height: 850px;
+  width: 600px;
+}
+
+#second-level-container-right {
+  position: absolute;
+  height: 850px;
+  width: 400px;
+  right: 0px;
 }
 </style>

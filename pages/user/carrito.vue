@@ -1,6 +1,6 @@
 <template>
   <div class>
-    <h1>Tendero, aqui pudes trabajar</h1>
+    <h1>Usuario, aquí puedes comprar</h1>
   </div>
 </template>
 
