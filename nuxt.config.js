@@ -37,7 +37,31 @@ export default {
     '@nuxtjs/bulma',
     // Doc: https://axios.nuxtjs.org/usage
     '@nuxtjs/axios',
+
+    '@nuxtjs/auth',
+
+    '@nuxtjs/toast'
   ],
+
+  /*
+  ** Auth module configuration
+  ** See https://auth.nuxtjs.org
+  */
+  auth: {
+    strategies: {
+      local: {
+        endpoints: {
+          login: { url: 'http://127.0.0.1:3001/login', method: 'post', propertyName: 'token' },
+          logout: false,
+          user: { url: 'http://127.0.0.1:3001/me', method: 'get', propertyName: 'user' }
+        },
+        // tokenRequired: true,
+        // tokenType: 'bearer'
+      },
+      tokenType: 'bearer'
+    }
+  },
+
   /*
   ** Axios module configuration
   ** See https://axios.nuxtjs.org/options
@@ -61,5 +85,9 @@ export default {
     extend(config, ctx) {
     },
     vendor: ['axios']
+  },
+
+  router: {
+    middleware: ['auth']
   }
 }

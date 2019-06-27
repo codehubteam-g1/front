@@ -32,9 +32,9 @@ import loginForm from "~/components/loginForm";
 export default {
   data () {
     return {
-      signupOption: true,
-      loginOption: false,
-      containerHeight: 460
+      signupOption: false,
+      loginOption: true,
+      containerHeight: 350
     }
   },
   components: {

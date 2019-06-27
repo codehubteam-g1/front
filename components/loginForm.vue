@@ -49,15 +49,37 @@ export default {
     };
   },
   methods: {
+    // login() {
+    //   let credenciales = {
+    //     email: this.user.email,
+    //     password: this.user.password
+    //   };
+    //   axios
+    //     .post("http://127.0.0.1:3001/login", credenciales)
+    //     .then(response => this.$router.push("user/home"))
+    //     .catch(error => alert(error.response.data.errorMessage));
+    // },
+
     login() {
-      let credenciales = {
-        email: this.user.email,
-        password: this.user.password
-      };
-      axios
-        .post("http://127.0.0.1:3001/login", credenciales)
-        .then(response => this.$router.push("user/home"))
-        .catch(error => alert(error.response.data.errorMessage));
+      this.$auth
+        .loginWith("local", {
+          data: {
+            email: this.user.email,
+            password: this.user.password
+          }
+        })
+        .then(response => {
+          this.$toast.success("Logged In!");
+          this.$router.push("user/home");
+        })
+        .catch(error => {
+          console.log(error);
+          if (error.response) alert(error.response.data.errorMessage);
+          else
+            alert(
+              "Error: No se ha podido acceder al servidor. Por favor intente más tarde"
+            );
+        });
     }
   }
 };

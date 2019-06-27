@@ -76,8 +76,14 @@ export default {
       };
       axios
         .post("http://127.0.0.1:3001/signup", credenciales)
-        .then(response => this.$router.push("secure/home"))
-        .catch(error => alert(error.response.data.errorMessage));
+        .then(response => this.$router.push("user/home"))
+        .catch(error => {
+          if (error.response) alert(error.response.data.errorMessage);
+          else
+            alert(
+              "Error: No se ha podido acceder al servidor. Por favor intente más tarde"
+            );
+        });
     }
   }
 }
