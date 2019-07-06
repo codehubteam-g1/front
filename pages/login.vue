@@ -1,57 +1,70 @@
-<template class="clase2">
-    <div class="clase2 columns centrarElemento">
-        <form class="column is-2 is-offset-5 has-text-centered" >
-            <div class="label has-text-white is-size-4"> Email: {{ user.email }} </div>
-        <input class="input is-rounded" type="email" name="email" v-model="user.email" placeholder="tucorreo@gmail.com">
-        <div class="label has-text-white is-size-4"> Password: </div>
-        <input class="input is-rounded" type="password" name="password" v-model="user.password">
-        <br></br>
-        <input class="button is-fullwidth is-link label has-text-white is-size-4" type="submit" value="Submit"  @click.prevent="handleSubmit">
-        </form> 
+<template>
+  <div id="background-container">
+    <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+    <div id="first-level-container">
+      <div id="second-level-container-left">
+        <div id="app-image-container">
+          <img src="~/static/background-app-image.webp" />
+        </div>
+      </div>
+
+      <div id="second-level-container-right">
+        <registrationForm />
+      </div>
     </div>
+  </div>
 </template>
 
 <script>
-export default {
-  data() {
-    return {
-      user: {
-        email: 'oscar@gmail.com',
-        password: ''
-      }
-    }
-  },
+import registrationForm from "~/components/registrationForm";
 
-  methods: {
-    handleSubmit() {
-      alert(this.user.email)
-    }
+export default {
+  components: {
+    registrationForm
   }
-}
+
+  //middleware: ['loginAuthMw']
+};
 </script>
 
-<style>
-.clase2{
-    position: absolute;
-    height: 100%;
-    width: 100%;
-    background-image: url("https://recipes-secure-graphics.grocerywebsite.com/0_GraphicsRecipes/4589_4k.jpg");
-    background-size: 1920px 1080px;
+<style scoped>
+#background-container {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  text-align: center;
 }
 
-.centrarElemento {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+#first-level-container {
+  position: absolute;
+  display: inline-block;
+  height: 850px;
+  width: 1000px;
+  top: 50%;
+  left: 46%;
+  transform: translate(-50%, -50%);
+  /* background-color: blue; */
 }
 
-div.label {
-    text-shadow: 1px 1px 2px #000000;
-    
+#app-image-container {
+  position: absolute;
+  width: 100%;
+  text-align: center;
+  top: 45%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
-input[type=submit] {
-    text-shadow: 1px 1px 2px #000000;
-    
+#second-level-container-left {
+  position: absolute;
+  height: 850px;
+  width: 600px;
+}
+
+#second-level-container-right {
+  position: absolute;
+  height: 850px;
+  width: 400px;
+  right: 0px;
 }
 </style>
