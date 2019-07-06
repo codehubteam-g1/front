@@ -8,7 +8,7 @@
         <div class="signup-form-input-container">
           <div class="field">
             <p class="control has-icons-left has-icons-right">
-              <input class="input" type="email" placeholder="Email" required v-model="user.email">
+              <input class="input" type="email" placeholder="Email" required v-model="user.email" />
               <span class="icon is-small is-left">
                 <i class="fas fa-envelope"></i>
               </span>
@@ -25,7 +25,7 @@
                 placeholder="Contraseña"
                 required
                 v-model="user.password"
-              >
+              />
               <span class="icon is-small is-left">
                 <i class="fas fa-lock"></i>
               </span>
@@ -34,23 +34,34 @@
         </div>
 
         <div class="signup-form-input-container">
-          <input
-            class="input"
-            type="text"
-            placeholder="Nombre completo"
-            required
-            v-model="user.name"
-            v-on:change="checkName"
-          >
+          <p class="control has-icons-left">
+            <input
+              class="input"
+              type="text"
+              placeholder="Nombre completo"
+              required
+              v-model="user.name"
+              v-on:change="checkName"
+            />
+            <span class="icon is-small is-left">
+              <i class="fas fa-user"></i>
+            </span>
+          </p>
         </div>
+
         <div class="signup-form-input-container">
-          <input class="input" type="tel" placeholder="Celular" required v-model="user.phone">
+          <p class="control has-icons-left">
+            <input class="input" type="tel" placeholder="Celular" required v-model="user.phone" />
+            <span class="icon is-small is-left">
+              <i class="fas fa-mobile-alt"></i>
+            </span>
+          </p>
         </div>
         <div id="alert" class="is-size-6" v-if="alert">
           <p>{{alertMessage}}</p>
         </div>
         <div class="signup-form-input-container" v-bind:style="{'margin-top': buttonMargin+'px'}">
-          <input class="button is-link" type="submit" value="Registrarte">
+          <input class="button is-link" type="submit" value="Registrarte" />
         </div>
       </div>
     </form>
@@ -92,7 +103,10 @@ export default {
             .then(response2 => {
               alert = false;
               this.buttonMargin = 40;
-              this.$toast.success("Te has registrado exitosamente", {duration: 1500, position: 'top-center'});
+              this.$toast.success("Te has registrado exitosamente", {
+                duration: 1500,
+                position: "top-center"
+              });
               this.$router.push({ path: "./" });
             });
         })
@@ -110,7 +124,7 @@ export default {
     },
 
     checkName() {
-      console.log('Checking');
+      console.log("Checking");
     }
   }
 };

@@ -1,7 +1,7 @@
 <template>
   <div id="background-container" class="has-navbar-fixed-top">
     <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
-    <nav class="navbar" role="navigation" aria-label="main navigation">
+    <nav class="navbar" role="navigation" aria-label="main navigation" style="border-bottom: 1px solid #e6e6e6;">
       <div class="navbar-brand">
         <div class="navbar-item">
           <div style="width: 200px; text-align: center;">
@@ -60,7 +60,7 @@
               </div>
             </a>
             <div class="navbar-dropdown">
-              <a class="navbar-item" href="/user">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Perfil</a>
+              <a class="navbar-item" href="/user">&nbsp;&nbsp;&nbsp;Mi Perfil</a>
               <hr class="navbar-divider" />
               <a class="navbar-item" @click="logout">Cerrar sesión</a>
             </div>
