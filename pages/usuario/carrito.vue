@@ -1,7 +1,7 @@
 <template>
 	<div class="">
 		
-		<h1>Usuario, aqui pudes comprar</h1>
+		<h1>Usuario, aqui esta los productos en tu carrito </h1>
 		
 
 	</div>

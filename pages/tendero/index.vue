@@ -1,8 +1,8 @@
 <template>
 	<div class="">
-		
-		<h1>Tendero, aqui pudes trabajar</h1>
+
 		<main-menu> </main-menu>
+		<h1>Tendero, aqui pudes trabajar</h1>
 
 	</div>
 </template>
