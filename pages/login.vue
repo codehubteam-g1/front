@@ -4,12 +4,12 @@
     <div id="first-level-container">
       <div id="second-level-container-left">
         <div id="app-image-container">
-          <img src="../static/background-app-image.webp" alt="Logo de Rappi">
+          <img src="~/static/background-app-image.webp" />
         </div>
       </div>
 
       <div id="second-level-container-right">
-        <registrationForm/>
+        <registrationForm />
       </div>
     </div>
   </div>
@@ -21,7 +21,7 @@ import registrationForm from "~/components/registrationForm";
 export default {
   components: {
     registrationForm
-  },
+  }
 
   //middleware: ['loginAuthMw']
 };

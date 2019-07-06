@@ -28,8 +28,10 @@
             </p>
           </div>
         </div>
-
-        <div class="signup-form-input-container" style="margin-top: 25px">
+        <div id="alert" class="is-size-6" v-if="alert">
+          <p>{{alertMessage}}</p>
+        </div>
+        <div class="signup-form-input-container" v-bind:style="{'margin-top': buttonMargin+'px'}">
           <input class="button is-link" type="submit" value="Iniciar sesión">
         </div>
       </div>
@@ -43,23 +45,15 @@ import axios from "axios";
 export default {
   data() {
     return {
+      alert: false,
+      alertMessage: "",
       user: {
         email: ""
-      }
+      },
+      buttonMargin: 30
     };
   },
   methods: {
-    // login() {
-    //   let credenciales = {
-    //     email: this.user.email,
-    //     password: this.user.password
-    //   };
-    //   axios
-    //     .post("http://127.0.0.1:3001/login", credenciales)
-    //     .then(response => this.$router.push("user/home"))
-    //     .catch(error => alert(error.response.data.errorMessage));
-    // },
-
     login() {
       this.$auth
         .loginWith("local", {
@@ -69,18 +63,26 @@ export default {
           }
         })
         .then(response => {
-          this.$toast.success("Logged In!");
-          this.$router.push("user/home");
+          alert = false;
+          this.buttonMargin = 40;
+          this.$toast.success("Has inciado sesión", {duration: 1500, position: 'top-center'});
+          this.$router.push({ path: "./" });
         })
         .catch(error => {
           console.log(error);
-          if (error.response) alert(error.response.data.errorMessage);
+          if (error.response)
+            this.alertMessage = error.response.data.errorMessage;
           else
-            alert(
-              "Error: No se ha podido acceder al servidor. Por favor intente más tarde"
-            );
+            this.alertMessage =
+              "Lo sentimos. Ocurrió un error al ingresar a tu cuenta. Por favor inténtalo de nuevo en un momento";
+
+          this.alert = true;
+          this.buttonMargin = 0;
         });
     }
+  },
+
+  computed: {
   }
 };
 </script>
@@ -88,7 +90,7 @@ export default {
 <style scoped>
 #signup-form-container {
   text-align: center;
-  margin-top: 55px;
+  margin-top: 35px;
 }
 
 .signup-form-input-container {
@@ -99,5 +101,13 @@ export default {
 
 .button {
   width: 100%;
+}
+
+#alert {
+  display: block;
+  margin: 15px 30px 0px 30px;
+  padding-bottom: 15px;
+  text-align: center;
+  color: #ed4956;
 }
 </style>

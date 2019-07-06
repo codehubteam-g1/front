@@ -53,7 +53,7 @@ export default {
         endpoints: {
           login: { url: 'http://127.0.0.1:3001/login', method: 'post', propertyName: 'token' },
           logout: false,
-          user: { url: 'http://127.0.0.1:3001/me', method: 'get', propertyName: 'user' }
+          user: { url: 'http://127.0.0.1:3001/user', method: 'get', propertyName: 'user' }
         },
         // tokenRequired: true,
         // tokenType: 'bearer'

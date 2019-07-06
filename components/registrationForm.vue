@@ -1,6 +1,6 @@
 <template>
   <div id="third-level-container">
-    <div id="registration-container" v-bind:style="{ height: containerHeight + 'px'} ">
+    <div id="registration-container" >
       <div id="logo-container">
         <img id="logo" src="../static/rappi-logo.svg" alt="Logo de Rappi">
       </div>
@@ -11,14 +11,14 @@
     <div id="other-option-container" v-if="signupOption">
       <p class>
         ¿Ya tienes una cuenta?
-        <a v-on:click="loginOption=true; signupOption=false; containerHeight=350">Inicia sesión</a>
+        <a v-on:click="loginOption=true; signupOption=false">Inicia sesión</a>
       </p>
     </div>
 
     <div id="other-option-container" v-if="loginOption">
       <p class>
         ¿No tienes una cuenta?
-        <a v-on:click="loginOption=false; signupOption=true; containerHeight=460">Regístrate</a>
+        <a v-on:click="loginOption=false; signupOption=true">Regístrate</a>
       </p>
     </div>
 
@@ -33,8 +33,7 @@ export default {
   data () {
     return {
       signupOption: false,
-      loginOption: true,
-      containerHeight: 350
+      loginOption: true
     }
   },
   components: {
@@ -56,8 +55,8 @@ export default {
 
 #registration-container {
   background-color: white;
-  width: 350px;
-  padding: 30px 0px 20px 0px;
+  width: 400px;
+  padding: 35px 0px 20px 0px;
   margin-bottom: 15px;
   border: 1px solid #e6e6e6;
   border-radius: 2px;
@@ -65,7 +64,7 @@ export default {
 
 #other-option-container {
   background-color: white;
-  width: 350px;
+  width: 400px;
   height: 70px;
   border: 1px solid #e6e6e6;
   border-radius: 2px;

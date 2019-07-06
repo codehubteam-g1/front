@@ -40,14 +40,16 @@
             placeholder="Nombre completo"
             required
             v-model="user.name"
+            v-on:change="checkName"
           >
         </div>
-
         <div class="signup-form-input-container">
           <input class="input" type="tel" placeholder="Celular" required v-model="user.phone">
         </div>
-
-        <div class="signup-form-input-container" style="margin-top: 25px">
+        <div id="alert" class="is-size-6" v-if="alert">
+          <p>{{alertMessage}}</p>
+        </div>
+        <div class="signup-form-input-container" v-bind:style="{'margin-top': buttonMargin+'px'}">
           <input class="button is-link" type="submit" value="Registrarte">
         </div>
       </div>
@@ -61,6 +63,9 @@ import axios from "axios";
 export default {
   data() {
     return {
+      alert: false,
+      alertMessage: "",
+      buttonMargin: 30,
       user: {
         email: ""
       }
@@ -76,17 +81,39 @@ export default {
       };
       axios
         .post("http://127.0.0.1:3001/signup", credenciales)
-        .then(response => this.$router.push("user/home"))
+        .then(response => {
+          this.$auth
+            .loginWith("local", {
+              data: {
+                email: this.user.email,
+                password: this.user.password
+              }
+            })
+            .then(response2 => {
+              alert = false;
+              this.buttonMargin = 40;
+              this.$toast.success("Te has registrado exitosamente", {duration: 1500, position: 'top-center'});
+              this.$router.push({ path: "./" });
+            });
+        })
         .catch(error => {
-          if (error.response) alert(error.response.data.errorMessage);
+          console.log(error);
+          if (error.response)
+            this.alertMessage = error.response.data.errorMessage;
           else
-            alert(
-              "Error: No se ha podido acceder al servidor. Por favor intente más tarde"
-            );
+            this.alertMessage =
+              "Lo sentimos. Ocurrió un error creando tu cuenta. Por favor inténtalo de nuevo en un momento";
+
+          this.alert = true;
+          this.buttonMargin = 0;
         });
+    },
+
+    checkName() {
+      console.log('Checking');
     }
   }
-}
+};
 </script>
 
 <style scoped>
@@ -96,7 +123,7 @@ export default {
 
 #motto {
   display: block;
-  margin: 25px 60px 25px 60px;
+  margin: 20px 60px 27px 60px;
   text-align: center;
 }
 
@@ -108,5 +135,12 @@ export default {
 
 .button {
   width: 100%;
+}
+
+#alert {
+  display: block;
+  margin: 15px 30px 15px 30px;
+  text-align: center;
+  color: #ed4956;
 }
 </style>
