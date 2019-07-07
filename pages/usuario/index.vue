@@ -1,19 +1,12 @@
 <template>
 	<div class="">
-
-		<main-menu> </main-menu>
-		<h1>Usuario, aqui pudes comprar</h1>
-
+		<h1>Inicio del Usuario</h1>
+		<h1>Mi carrito</h1>
+		<h1>Tiendas</h1>
 	</div>
 </template>
 
 <script type="text/javascript">
-	import MainMenu from '../../components/Menu'
-	export default {
-  		components: {
-    		MainMenu
-  		}
-	}
 
 </script>
 
