@@ -10,7 +10,7 @@
 						</figure>
 					</div>
 					<div class="media-content">
-						Productos en el carrito
+						Productos en carrito
 					</div>
 					<span class="tag is-light is-medium">Cantidad</span>
 				</div>
@@ -21,7 +21,7 @@
 </template>
 
 <script type="text/javascript">
-import Tiendas from './tiendas'
+import Tiendas from '../tiendas'
 export default {
     components: {
 		Tiendas,
