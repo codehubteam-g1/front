@@ -1,18 +1,31 @@
 <template>
-  <div class="">
-    <main-menu></main-menu>
-    <div>Este es el index</div>
-  </div>
+	<div class="">
+		<h1 class="subtitle">Inicio del Usuario</h1>
+		<div class="card">
+			<div class="card-content">
+				<div class="media">
+					<div class="media-left">
+						<figure class="image is-48x48">
+						<img src="https://bulma.io/images/placeholders/96x96.png" alt="Placeholder image">
+						</figure>
+					</div>
+					<div class="media-content">
+						Productos en el carrito
+					</div>
+					<span class="tag is-light is-medium">Cantidad</span>
+				</div>
+			</div>
+		</div>
+		<Tiendas></Tiendas>
+	</div>
 </template>
 
-<script>
-import Logo from '~/components/Logo.vue'
-import MainMenu from '../components/Menu'
+<script type="text/javascript">
+import Tiendas from './tiendas'
 export default {
-  components: {
-    Logo,
-    MainMenu
-  }
+    components: {
+		Tiendas,
+    }
 }
 </script>
 
