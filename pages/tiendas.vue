@@ -1,16 +1,17 @@
 <template>
-	<div class="columns">
-		<div class="column is-half"> 
-			<div class="column">
-				<Tienda></Tienda>
-				<Tienda></Tienda>
-				<Tienda></Tienda>
-				<Tienda></Tienda>
-				<Tienda></Tienda>
-				<Tienda></Tienda>
-			</div>
+	<div class="">
+		<div class="columns is-desktop">
+			<Tienda></Tienda>
+			<Tienda></Tienda>
+			<Tienda></Tienda>
+		</div>
+		<div class="columns is-desktop">
+			<Tienda></Tienda>
+			<Tienda></Tienda>
+			<Tienda></Tienda>
 		</div>
 	</div>
+		
 </template>
 
 <script type="text/javascript">

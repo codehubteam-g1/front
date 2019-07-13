@@ -1,0 +1,8 @@
+{ "productos" : [
+  { "Nombre": "Cheese", "Cantidad" : 2, "Descripcion": "Refrigerated foods", "Imagen": "https://bulma.io/images/placeholders/96x96.png"},
+  { "Nombre": "Crisps", "Cantidad" : 3, "Descripcion": "the Snack isle", "Imagen": "https://bulma.io/images/placeholders/96x96.png"},
+  { "Nombre": "Pizza", "Cantidad" : 4, "Descripcion": "Refrigerated foods", "Imagen": "https://bulma.io/images/placeholders/96x96.png"},
+  { "Nombre": "Chocolate", "Cantidad" : 10, "Descripcion": "the Snack isle", "Imagen": "https://bulma.io/images/placeholders/96x96.png"},
+  { "Nombre": "Self-raising flour", "Cantidad" : 15, "Descripcion": "Home baking", "Imagen": "https://bulma.io/images/placeholders/96x96.png"},
+  { "Nombre": "Ground almonds", "Cantidad" : 3, "Descripcion": "Home baking", "Imagen": "https://bulma.io/images/placeholders/96x96.png"}
+]}

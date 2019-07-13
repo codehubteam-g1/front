@@ -21,6 +21,17 @@
 </template>
 
 <script type="text/javascript">
+import axios from "axios"
+export default {
+	data(){
+		return { 
+			"nombre": "Cheese", 
+			"cantidad" : 2, 
+			"descripcion": "Refrigerated foods", 
+			"imagen": "https://bulma.io/images/placeholders/96x96.png"
+			}
+	}
+}
 
 </script>
 
