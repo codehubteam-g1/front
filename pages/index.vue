@@ -1,7 +1,12 @@
 <template>
   <div id="background-container" class="has-navbar-fixed-top">
     <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
-    <nav class="navbar" role="navigation" aria-label="main navigation" style="border-bottom: 1px solid #e6e6e6;">
+    <nav
+      class="navbar"
+      role="navigation"
+      aria-label="main navigation"
+      style="border-bottom: 1px solid #e6e6e6;"
+    >
       <div class="navbar-brand">
         <div class="navbar-item">
           <div style="width: 200px; text-align: center;">
@@ -20,15 +25,63 @@
               <span class="icon is-small" style="padding-right: 20px">
                 <i class="fas fa-map-marker-alt"></i>
               </span>
-              <span>Carrera 4A #55-55</span>
+              <span>{{selectedAddress.address}}</span>
             </div>
 
             <div class="navbar-dropdown">
-              <a class="navbar-item">Carrera 51 #96-24, Pasadena</a>
-              <a class="navbar-item">Calle 12 #22-11</a>
-              <a class="navbar-item">Centro de alta tecnología, local 114</a>
+              <div class="navbar-item" v-if="selectedAddress.id">
+                <a
+                  class="is-size-6 has-text-grey-dark"
+                  style="min-width: 305px;"
+                >{{ selectedAddress.tag }}: &nbsp;&nbsp;&nbsp;{{ selectedAddress.address }}</a>
+                <a
+                  class="button is-danger"
+                  style="margin-left: 5px;"
+                  @click="deleteAddress(selectedAddress.id)"
+                >Eliminar</a>
+              </div>
+              <div class="navbar-item" v-for="item in unselectedAddresses" v-bind:key="item.id">
+                <a
+                  class="is-size-6 has-text-grey-dark"
+                  style="min-width: 305px;"
+                  @click="selectAddress(item.id)"
+                >{{ item.tag }}: &nbsp;&nbsp;&nbsp;{{ item.address }}</a>
+                <a
+                  class="button is-danger"
+                  style="margin-left: 5px;"
+                  @click="deleteAddress(item.id)"
+                >Eliminar</a>
+              </div>
+
               <hr class="navbar-divider" />
-              <a class="navbar-item">Agregar una nueva dirección</a>
+              <div class="navbar-item">
+                <a
+                  class="is-size-6 has-text-grey-dark"
+                  style="cursor: default;"
+                >Agrega una nueva dirección:</a>
+              </div>
+
+              <div>
+                <div class="navbar-item">
+                  <form @submit.prevent="addAddress">
+                    <input
+                      class="input"
+                      style="width: 165px;"
+                      type="text"
+                      placeholder="Tu dirección"
+                      v-model="insertedAddress"
+                    />
+                    <input
+                      class="input"
+                      style="width: 135px;"
+                      type="text"
+                      placeholder="(casa, apto, etc.)"
+                      v-model="insertedTag"
+                    />
+                    <input class="button is-link" type="submit" value="Agregar" />
+                  </form>
+                </div>
+              </div>
             </div>
           </div>
           <div class="navbar-item">
@@ -75,7 +128,14 @@
 import profilePicture from "~/components/profilePicture";
 
 export default {
-  //middleware: ['generalAuthMw'],
+  data() {
+    return {
+      selectedAddress: { address: "Ingresa tu dirección" },
+      unselectedAddresses: [],
+      insertedAddress: "",
+      insertedTag: ""
+    };
+  },
 
   methods: {
     logout() {
@@ -86,10 +146,103 @@ export default {
         });
         this.$router.push("../login");
       });
+    },
+    getAddresses() {
+      this.selectedAddress = { address: "Ingresa tu dirección" };
+      let token = this.$auth.getToken("local");
+      this.$axios
+        .get("http://127.0.0.1:3001/user/addressesByUserId", {
+          Authorization: "bearer" + token
+        })
+        .then(response => {
+          this.unselectedAddresses = [];
+          let addresses = response.data.addresses;
+          console.log(addresses);
+
+          if (addresses.length !== 0) {
+            addresses.forEach(element => {
+              if (element.selected === false) {
+                this.unselectedAddresses.push(element);
+              } else {
+                this.selectedAddress = element;
+              }
+            });
+          }
+        })
+        .catch(error => error);
+    },
+
+    addAddress() {
+      let token = this.$auth.getToken("local");
+      this.$axios
+        .post(
+          "http://127.0.0.1:3001/user/createAddress",
+          {
+            address: this.insertedAddress,
+            tag: this.insertedTag
+          },
+          { Authorization: "bearer" + token }
+        )
+        .then(response2 => {
+          this.$toast.success("Se han guardado los cambios", {
+            duration: 1500,
+            position: "top-right"
+          });
+          this.getAddresses();
+          this.insertedAddress = "";
+          this.insertedTag = "";
+        })
+        .catch(error => {
+          this.alertMessage = error.response.data.errorMessage;
+          this.alert = true;
+        });
+    },
+    selectAddress(id) {
+      let token = this.$auth.getToken("local");
+      this.$axios
+        .post(
+          "http://127.0.0.1:3001/user/selectAddress",
+          {
+            id
+          },
+          { Authorization: "bearer" + token }
+        )
+        .then(response2 => {
+          this.getAddresses();
+        })
+        .catch(error => {
+          this.alertMessage = error.response.data.errorMessage;
+          this.alert = true;
+        });
+    },
+    deleteAddress(id) {
+      let token = this.$auth.getToken("local");
+      this.$axios
+        .post(
+          "http://127.0.0.1:3001/user/deleteAddress",
+          {
+            id
+          },
+          { Authorization: "bearer" + token }
+        )
+        .then(response2 => {
+          this.$toast.success("Se ha eliminado", {
+            duration: 1500,
+            position: "top-right"
+          });
+          this.getAddresses();
+        })
+        .catch(error => {
+          this.alertMessage = error.response.data.errorMessage;
+          this.alert = true;
+        });
     }
   },
   components: {
     profilePicture
+  },
+  created() {
+    this.getAddresses();
   }
 };
 </script>

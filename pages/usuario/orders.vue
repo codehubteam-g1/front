@@ -46,7 +46,7 @@ export default {
    },
   methods: {
       getOrders(){
-          axios.get("http://localhost:3000/api/orders").then(response  => {
+          axios.get("http://127.0.0.1:3000/api/orders").then(response  => {
               this.orders = response.data.ord
           })
       }
