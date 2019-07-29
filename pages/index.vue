@@ -265,4 +265,11 @@ export default {
   min-height: 6.25em; /* Increases the minimun height of the navbar from 3.25em to 6.25em */
 }
 
+.navbar-item img {
+  max-height: 6.25em; /* Increases the maximum height of the navbar-item images from 1.75em to 6.25em */
+}
+
+/* .navbar-dropdown a.navbar-item {
+  padding-right: 1rem;
+} */
 </style>
