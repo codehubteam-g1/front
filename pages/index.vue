@@ -2,7 +2,7 @@
   <div id="background-container" class="has-navbar-fixed-top">
     <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
     <nav
-      class="navbar navbar-brand"
+      class="navbar"
       role="navigation"
       aria-label="main navigation"
       style="border-bottom: 1px solid #e6e6e6;"
@@ -261,7 +261,8 @@ export default {
     overflow-y: scroll;
 } */
 
-.navbar-brand {
+.navbar {
   min-height: 6.25em; /* Increases the minimun height of the navbar from 3.25em to 6.25em */
 }
+
 </style>
