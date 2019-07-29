@@ -67,17 +67,17 @@
                     <form @submit.prevent="addAddress">
                       <input
                         class="input"
-                        style="width: 165px;"
-                        type="text"
-                        placeholder="Tu dirección"
-                        v-model="insertedAddress"
-                      />
-                      <input
-                        class="input"
-                        style="width: 135px;"
+                        style="width: 160px;"
                         type="text"
                         placeholder="(casa, trabajo, etc.)"
                         v-model="insertedTag"
+                      />
+                      <input
+                        class="input"
+                        style="width: 240px;"
+                        type="text"
+                        placeholder="Tu dirección completa"
+                        v-model="insertedAddress"
                       />
                       <input class="button is-link" type="submit" value="Agregar" />
                     </form>
@@ -85,7 +85,10 @@
                 </div>
               </div>
             </div>
-            <div class="navbar-item">
+          </div>
+
+          <div class="navbar-end">
+            <div class="navbar-item" style="padding: 0px 40px 0px 10px;">
               <p class="control has-icons-left">
                 <input class="input" type="text" placeholder="Busca un restaurante o producto" />
                 <span class="icon is-small is-left">
@@ -93,12 +96,9 @@
                 </span>
               </p>
             </div>
-          </div>
-
-          <div class="navbar-end">
             <div class="navbar-item">
               <a href>
-                <div style="padding-left: 10px;">
+                <div style="padding: 0px 10px 0px 10px;">
                   <img src="~/static/shopping-bag.svg" title="Bolsa de compras" width="60px" alt />
                 </div>
               </a>
@@ -109,7 +109,7 @@
               style="margin-right: 30px; margin-top: 10px; margin-left: 30px;"
             >
               <a href="/user">
-                <div style="padding-left: 10px;">
+                <div style="padding: 0px 10px 0px 10px;">
                   <profilePicture ref="picture" style="width: 80px; height: 80px;" />
                 </div>
               </a>
