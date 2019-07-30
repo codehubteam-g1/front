@@ -11,14 +11,14 @@
     <div id="other-option-container" v-if="signupOption">
       <p class>
         ¿Ya tienes una cuenta?
-        <a v-on:click="loginOption=true; signupOption=false">Inicia sesión</a>
+        <span v-on:click="loginOption=true; signupOption=false" class="has-text-link"  style="cursor: pointer;">Inicia sesión</span>
       </p>
     </div>
 
     <div id="other-option-container" v-if="loginOption">
       <p class>
         ¿No tienes una cuenta?
-        <a v-on:click="loginOption=false; signupOption=true">Regístrate</a>
+        <span v-on:click="loginOption=false; signupOption=true" class="has-text-link"  style="cursor: pointer;">Regístrate</span>
       </p>
     </div>
 

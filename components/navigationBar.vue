@@ -31,35 +31,34 @@
 
               <div class="navbar-dropdown">
                 <div class="navbar-item" v-if="selectedAddress.id">
-                  <a
+                  <span
                     class="is-size-6 has-text-grey-dark"
-                    style="min-width: 305px;"
-                  >{{ selectedAddress.tag }}: &nbsp;&nbsp;&nbsp;{{ selectedAddress.address }}</a>
-                  <a
+                    style="min-width: 305px; cursor: pointer"
+                  >{{ selectedAddress.tag }}: &nbsp;&nbsp;&nbsp;{{ selectedAddress.address }}</span>
+                  <span
                     class="button is-danger"
-                    style="margin-left: 5px;"
+                    style="margin-left: 5px"
                     @click="deleteAddress(selectedAddress.id)"
-                  >Eliminar</a>
+                  >Eliminar</span>
                 </div>
                 <div class="navbar-item" v-for="item in unselectedAddresses" v-bind:key="item.id">
-                  <a
+                  <span
                     class="is-size-6 has-text-grey-dark"
-                    style="min-width: 305px;"
+                    style="min-width: 305px; cursor: pointer"
                     @click="selectAddress(item.id)"
-                  >{{ item.tag }}: &nbsp;&nbsp;&nbsp; {{ item.address }}</a>
-                  <a
+                  >{{ item.tag }}: &nbsp;&nbsp;&nbsp; {{ item.address }}</span>
+                  <span
                     class="button is-danger"
                     style="margin-left: 5px;"
                     @click="deleteAddress(item.id)"
-                  >Eliminar</a>
+                  >Eliminar</span>
                 </div>
 
                 <hr class="navbar-divider" />
                 <div class="navbar-item">
-                  <a
+                  <span
                     class="is-size-6 has-text-grey-dark"
-                    style="cursor: default;"
-                  >Agrega una nueva dirección:</a>
+                  >Agrega una nueva dirección:</span>
                 </div>
 
                 <div>
@@ -97,25 +96,25 @@
               </p>
             </div>
             <div class="navbar-item">
-              <a href>
+              <nuxt-link to="/user">
                 <div style="padding: 0px 15px 0px 10px;">
                   <img src="~/static/shopping-bag.svg" title="Bolsa de compras" width="60px" alt />
                 </div>
-              </a>
+              </nuxt-link>
             </div>
 
             <div
               class="navbar-item has-dropdown is-hoverable"
             >
-              <a href="/user">
+              <nuxt-link to="/user">
                 <div style="margin-right: 0px; margin-top: 10px; margin-left: 20px;">
                   <profilePicture ref="picture" style="width: 80px; height: 80px;" />
                 </div>
-              </a>
+              </nuxt-link>
               <div class="navbar-dropdown">
-                <a class="navbar-item" style="width: 120px" href="/user">&nbsp;&nbsp;&nbsp;Mi Perfil</a>
+                <nuxt-link to="/user"><span class="navbar-item" style="width: 120px">&nbsp;&nbsp;&nbsp;Mi Perfil</span></nuxt-link>
                 <hr class="navbar-divider" />
-                <a class="navbar-item" style="width: 120px"  @click="logout">Cerrar sesión</a>
+                <span class="navbar-item" style="width: 120px; cursor: pointer" @click="logout">Cerrar sesión</span>
               </div>
             </div>
           </div>

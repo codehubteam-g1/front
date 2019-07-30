@@ -1,5 +1,5 @@
 <template>
-  <a v-bind:href="'/stores/'+store.id">
+  <nuxt-link v-bind:to="'/stores/'+store.id">
     <div class="card" style="margin: 20px 0px 20px 0px;">
       <div class="card-image">
         <figure class="image is-2by1">
@@ -35,7 +35,7 @@
         </div>
       </div>
     </div>
-  </a>
+  </nuxt-link>
 </template>
 
 <script>

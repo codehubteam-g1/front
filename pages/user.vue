@@ -59,7 +59,7 @@
               type="submit"
               value="Guardar cambios"
             />
-            <a href="../" class="button is-primary" value="Volver">Volver</a>
+            <nuxt-link to="/" class="button is-primary" value="Volver">Volver</nuxt-link>
           </div>
         </div>
         <div style="height: 100px;"></div>
