@@ -11,7 +11,9 @@
         <div class="navbar-brand">
           <div class="navbar-item" style="padding: 0px 0px 0px 0px">
             <div style="text-align: center;">
-              <img src="../static/rappi-logo.svg" width="140" />
+              <nuxt-link to="/">
+                <img src="../static/rappi-logo.svg" width="140" />
+              </nuxt-link>
             </div>
           </div>
         </div>
@@ -56,9 +58,7 @@
 
                 <hr class="navbar-divider" />
                 <div class="navbar-item">
-                  <span
-                    class="is-size-6 has-text-grey-dark"
-                  >Agrega una nueva dirección:</span>
+                  <span class="is-size-6 has-text-grey-dark">Agrega una nueva dirección:</span>
                 </div>
 
                 <div>
@@ -103,18 +103,22 @@
               </nuxt-link>
             </div>
 
-            <div
-              class="navbar-item has-dropdown is-hoverable"
-            >
+            <div class="navbar-item has-dropdown is-hoverable">
               <nuxt-link to="/user">
                 <div style="margin-right: 0px; margin-top: 10px; margin-left: 20px;">
                   <profilePicture ref="picture" style="width: 80px; height: 80px;" />
                 </div>
               </nuxt-link>
               <div class="navbar-dropdown">
-                <nuxt-link to="/user"><span class="navbar-item" style="width: 120px">&nbsp;&nbsp;&nbsp;Mi Perfil</span></nuxt-link>
+                <nuxt-link to="/user">
+                  <span class="navbar-item" style="width: 120px">&nbsp;&nbsp;&nbsp;Mi Perfil</span>
+                </nuxt-link>
                 <hr class="navbar-divider" />
-                <span class="navbar-item" style="width: 120px; cursor: pointer" @click="logout">Cerrar sesión</span>
+                <span
+                  class="navbar-item"
+                  style="width: 120px; cursor: pointer"
+                  @click="logout"
+                >Cerrar sesión</span>
               </div>
             </div>
           </div>
@@ -239,7 +243,7 @@ export default {
     }
   },
   components: {
-    profilePicture,
+    profilePicture
   },
   created() {
     this.getAddresses();
