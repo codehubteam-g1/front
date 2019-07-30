@@ -55,21 +55,26 @@ import navigationBar from "~/components/navigationBar";
 export default {
   data() {
     return {
-      store: {
-        name: "Poke",
-        description: "Asiática",
-        logoUrl:
-          "https://images.squarespace-cdn.com/content/5784db22cd0f68f8a73d4007/1475462692394-31VZKFP3Y9Z5FRUS815X/Red+on+Pink.jpg?content-type=image%2Fjpeg",
-        coverPictureUrl:
-          "https://images.squarespace-cdn.com/content/v1/5784db22cd0f68f8a73d4007/1537804032389-SOPDKQNJYUC3NU32OCVF/ke17ZwdGBToddI8pDm48kFyD7pzB8zoMIVY5aiUuFlp7gQa3H78H3Y0txjaiv_0fDoOvxcdMmMKkDsyUqMSsMWxHk725yiiHCCLfrh8O1z4YTzHvnKhyp6Da-NYroOW3ZGjoBKy3azqku80C789l0jG2lbcDYBOeMi4OFSYem8DMb5PTLoEDdB05UqhYu-xbnSznFxIRsaAU-3g5IaylIg/118.jpg?format=2500w",
-        address: "Av. 80 #No. 16-14"
-      },
       score: (Math.random() + 3.6).toFixed(1),
-      number: Math.ceil(Math.random() * 10) * 50
+      number: Math.ceil(Math.random() * 10) * 50,
+      store: []
     };
   },
   components: {
     navigationBar
+  },
+
+  created() {
+    let id = this.$route.params.id;
+    let token = this.$auth.getToken("local");
+    this.$axios
+      .get(`http://127.0.0.1:3001/stores/getStoreByStoreId/${id}`, {
+        Authorization: "bearer" + token
+      })
+      .then(response => {
+        this.store = response.data.store
+      })
+      .catch(error => error);
   }
 };
 </script>
