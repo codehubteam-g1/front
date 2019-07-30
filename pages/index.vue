@@ -6,11 +6,11 @@
         class="navbar is-fixed-top"
         role="navigation"
         aria-label="main navigation"
-        style="border-bottom: 1px solid #e6e6e6; max-width: 1920px; margin: 0 auto"
+        style="border-bottom: 1px solid #e6e6e6; max-width: 1920px; margin: 0 auto; padding: 0px 50px 0px 50px"
       >
         <div class="navbar-brand">
-          <div class="navbar-item">
-            <div style="width: 200px; text-align: center;">
+          <div class="navbar-item" style="padding: 0px 0px 0px 0px">
+            <div style="text-align: center;">
               <img src="../static/rappi-logo.svg" width="140" />
             </div>
           </div>
@@ -23,7 +23,7 @@
               style="padding-right: 50px; padding-left: 20px;"
             >
               <div class="navbar-item">
-                <span class="icon is-small" style="padding-right: 20px">
+                <span class="icon is-small" style="padding: 0px 20px 0px 40px">
                   <i class="fas fa-map-marker-alt"></i>
                 </span>
                 <span>{{selectedAddress.address}}</span>
@@ -46,7 +46,7 @@
                     class="is-size-6 has-text-grey-dark"
                     style="min-width: 305px;"
                     @click="selectAddress(item.id)"
-                  >{{ item.tag }}: &nbsp;&nbsp;&nbsp;{{ item.address }}</a>
+                  >{{ item.tag }}: &nbsp;&nbsp;&nbsp; {{ item.address }}</a>
                   <a
                     class="button is-danger"
                     style="margin-left: 5px;"
@@ -98,7 +98,7 @@
             </div>
             <div class="navbar-item">
               <a href>
-                <div style="padding: 0px 10px 0px 10px;">
+                <div style="padding: 0px 15px 0px 10px;">
                   <img src="~/static/shopping-bag.svg" title="Bolsa de compras" width="60px" alt />
                 </div>
               </a>
@@ -106,17 +106,16 @@
 
             <div
               class="navbar-item has-dropdown is-hoverable"
-              style="margin-right: 30px; margin-top: 10px; margin-left: 30px;"
             >
               <a href="/user">
-                <div style="padding: 0px 10px 0px 10px;">
+                <div style="margin-right: 0px; margin-top: 10px; margin-left: 20px;">
                   <profilePicture ref="picture" style="width: 80px; height: 80px;" />
                 </div>
               </a>
               <div class="navbar-dropdown">
-                <a class="navbar-item" href="/user">&nbsp;&nbsp;&nbsp;Mi Perfil</a>
+                <a class="navbar-item" style="width: 120px" href="/user">&nbsp;&nbsp;&nbsp;Mi Perfil</a>
                 <hr class="navbar-divider" />
-                <a class="navbar-item" @click="logout">Cerrar sesión</a>
+                <a class="navbar-item" style="width: 120px"  @click="logout">Cerrar sesión</a>
               </div>
             </div>
           </div>
