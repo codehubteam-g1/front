@@ -1,5 +1,5 @@
 <template>
-  <a href>
+  <a v-bind:href="'/stores/'+store.id">
     <div class="card" style="margin: 20px 0px 20px 0px;">
       <div class="card-image">
         <figure class="image is-2by1">

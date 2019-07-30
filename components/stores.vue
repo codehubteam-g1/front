@@ -2,23 +2,17 @@
   <div class="columns" style="padding: 6.25em 40px 0px 40px">
     <div class="column">
       <div v-for="store in firstColumnStores" v-bind:key="store.id">
-        <a href>
-          <store :store="store" />
-        </a>
+        <store :store="store" />
       </div>
     </div>
     <div class="column">
       <div v-for="store in secondColumnStores" v-bind:key="store.id">
-        <a href>
-          <store :store="store" />
-        </a>
+        <store :store="store" />
       </div>
     </div>
     <div class="column">
       <div v-for="store in thirdColumnStores" v-bind:key="store.id">
-        <a href>
-          <store :store="store" />
-        </a>
+        <store :store="store" />
       </div>
     </div>
   </div>
