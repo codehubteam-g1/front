@@ -3,20 +3,20 @@
     <div class="card" style="margin: 20px 0px 20px 0px">
       <div class="card-image">
         <figure class="image is-2by1">
-          <img v-bind:src="storeData.coverPictureUrl" />
+          <img v-bind:src="store.coverPictureUrl" />
         </figure>
       </div>
 
       <div class="card-content">
         <div class="media">
           <div class="media-content">
-            <p class="title is-4">{{storeData.name}}</p>
-            <p class="subtitle is-6 has-text-grey">{{storeData.description}}</p>
+            <p class="title is-4">{{store.name}}</p>
+            <p class="subtitle is-6 has-text-grey">{{store.description}}</p>
           </div>
 
           <div class="media-right">
             <figure class="image is-64x64">
-              <img v-bind:src="storeData.logoUrl" />
+              <img v-bind:src="store.logoUrl" />
             </figure>
           </div>
         </div>
@@ -47,7 +47,7 @@ export default {
     };
   },
   props: [
-    'storeData'
+    'store'
   ]
 };
 </script>
