@@ -26,11 +26,11 @@
             <span>30 - 40 min</span>
           </div>
           <div class="rectangle" style="has-icons-right">
-            <span>4.3</span>
+            <span>{{score}}</span>
             <span class="icon is-small is-right" style="color: orange">
               <i class="fas fa-star"></i>
             </span>
-            <span class="has-text-grey">(500+)</span>
+            <span class="has-text-grey">({{number}}+)</span>
           </div>
         </div>
       </div>
@@ -44,6 +44,8 @@ import axios from "axios";
 export default {
   data() {
     return {
+      score: (Math.random()+3.6).toFixed(1),
+      number: Math.ceil(Math.random()*10)*50
     };
   },
   props: [
