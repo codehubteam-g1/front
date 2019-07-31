@@ -91,7 +91,7 @@ export default {
         password: this.user.password
       };
       axios
-        .post("http://127.0.0.1:3001/signup", credenciales)
+        .post(process.env.apiUrl+":3001/signup", credenciales)
         .then(response => {
           this.$auth
             .loginWith("local", {

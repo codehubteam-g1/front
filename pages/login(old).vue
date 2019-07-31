@@ -43,7 +43,7 @@ export default {
         password: this.user.password
       };
       axios
-        .post("http://127.0.0.1:3001/login", credenciales)
+        .post(process.env.apiUrl+":3001/login", credenciales)
         .then(response => this.$router.push("secure/home"))
         .catch(error => alert(error.response.data.errorMessage));
     },

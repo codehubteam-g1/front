@@ -18,7 +18,7 @@ export default {
     update() {
       let token = this.$auth.getToken("local");
       this.$axios
-        .get("http://127.0.0.1:3001/users", { Authorization: "bearer" + token })
+        .get(process.env.apiUrl+":3001/users", { Authorization: "bearer" + token })
         .then(response => {
           let pictureUrl = response.data.user.profilePictureUrl;
           if (pictureUrl) this.profilePictureUrl = pictureUrl;
@@ -33,7 +33,7 @@ export default {
   created: function() {
     let token = this.$auth.getToken("local");
     this.$axios
-      .get("http://127.0.0.1:3001/users", { Authorization: "bearer" + token })
+      .get(process.env.apiUrl+":3001/users", { Authorization: "bearer" + token })
       .then(response => {
         let pictureUrl = response.data.user.profilePictureUrl;
         if (pictureUrl) this.profilePictureUrl = pictureUrl;

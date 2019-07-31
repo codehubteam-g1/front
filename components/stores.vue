@@ -41,7 +41,7 @@ export default {
   created() {
     let token = this.$auth.getToken("local");
     this.$axios
-      .get("http://127.0.0.1:3001/stores/getAllStores", {
+      .get(process.env.apiUrl+":3001/stores/getAllStores", {
         Authorization: "bearer" + token
       })
       .then(response => {
