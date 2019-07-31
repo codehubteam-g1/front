@@ -23,12 +23,6 @@ import store from "~/components/store";
 export default {
   data() {
     return {
-      prueba: {
-        name: "Restorando",
-        description: "Pizzas",
-        coverPictureUrl: "http://localhost:3000/_nuxt/static/rappi-logo.svg",
-        logoUrl: "http://localhost:3000/_nuxt/static/rappi-logo.svg"
-      },
       firstColumnStores: [],
       secondColumnStores: [],
       thirdColumnStores: []

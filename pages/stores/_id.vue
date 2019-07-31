@@ -3,7 +3,7 @@
     <navigationBar />
     <div style="padding: 6.25em 0px 0px 0px">
       <div style="height: 250px; overflow: hidden; display: flex; align-items: center;">
-        <img style="width: 100%;" v-bind:src="store.coverPictureUrl" alt />
+        <img style="width: 100%;" v-bind:src="store.coverPictureUrl"/>
         <div class="card" style="position: absolute; padding-left: 30px">
           <div class="card-content">
             <div class="media">
@@ -47,25 +47,31 @@
         <strong>Horario</strong>&nbsp;(8:00 am - 9:00 pm)
       </p>
     </div>
+    <products :storeId="storeId"/>
   </div>
 </template>
 
 <script>
 import navigationBar from "~/components/navigationBar";
+import products from "~/components/products"
+
 export default {
   data() {
     return {
       score: (Math.random() + 3.6).toFixed(1),
       number: Math.ceil(Math.random() * 10) * 50,
-      store: []
+      store: [],
+      storeId: null
     };
   },
   components: {
-    navigationBar
+    navigationBar,
+    products
   },
 
   created() {
     let id = this.$route.params.id;
+    this.storeId = id
     let token = this.$auth.getToken("local");
     this.$axios
       .get(process.env.apiUrl+`:3001/stores/getStoreByStoreId/${id}`, {
