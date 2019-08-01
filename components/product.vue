@@ -23,7 +23,7 @@
       </div>
 
       <div class="content" style="  display: flex; align-items: center; justify-content: center;">
-        <span class="button is-link">Agregar</span>
+        <span class="button is-link" v-on:click="addToCart">Agregar</span>
       </div>
     </div>
   </div>
@@ -39,6 +39,33 @@ export default {
       number: Math.ceil(Math.random() * 10) * 50
     };
   },
+  methods: {
+    addToCart() {
+      let token = this.$auth.getToken("local");
+      this.$axios
+        .post(
+          process.env.apiUrl + ":3001/shoppingCarts/addCartProduct",
+          {
+            productId: this.product.id,
+            quantity: 1
+          },
+          { Authorization: "bearer" + token }
+        )
+        .then(response2 => {
+          this.$toast.success("Se ha agregado al carrito", {
+            duration: 1000,
+            position: "top-right"
+          });
+        })
+        .catch(error => {
+          this.$toast.error("Error", {
+            duration: 1000,
+            position: "top-right"
+          });
+        });
+    }
+  },
+
   props: ["product"]
 };
 </script>
