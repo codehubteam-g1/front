@@ -23,7 +23,7 @@
       </div>
 
       <div class="content" style="  display: flex; align-items: center; justify-content: center;">
-        <span class="button is-link" v-on:click="addToCart">Agregar</span>
+        <span class="button is-link" v-on:click="addCartProduct">Agregar</span>
       </div>
     </div>
   </div>
@@ -40,7 +40,7 @@ export default {
     };
   },
   methods: {
-    addToCart() {
+    addCartProduct() {
       let token = this.$auth.getToken("local");
       this.$axios
         .post(

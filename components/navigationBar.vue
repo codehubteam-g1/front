@@ -96,7 +96,7 @@
               </p>
             </div>
             <div class="navbar-item">
-              <nuxt-link to="/user">
+              <nuxt-link to="/shoppingCart">
                 <div style="padding: 0px 15px 0px 10px;">
                   <img src="~/static/shopping-bag.svg" title="Bolsa de compras" width="60px" alt />
                 </div>
