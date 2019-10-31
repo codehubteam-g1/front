@@ -3,7 +3,7 @@
     <div class="column"></div>
     <div class="column">
       <div v-for="cartProduct in cartProducts" v-bind:key="cartProduct.id">
-        <cartProduct :cartProduct="cartProduct" />
+        <cartProduct @reload="load" :cartProduct="cartProduct" />
       </div>
     </div>
     <div class="column"></div>
@@ -21,17 +21,22 @@ export default {
   components: {
     cartProduct
   },
-
+  methods: {
+    load() {
+      console.log('Ejecutó load')
+      let token = this.$auth.getToken("local");
+      this.$axios
+        .get(process.env.apiUrl + ":3001/shoppingCarts/getCartProducts", {
+          Authorization: "bearer" + token
+        })
+        .then(response => {
+          this.cartProducts = response.data.cartProducts;
+        })
+        .catch(error => error);
+    }
+  },
   created() {
-    let token = this.$auth.getToken("local");
-    this.$axios
-      .get(process.env.apiUrl + ":3001/shoppingCarts/getCartProducts", {
-        Authorization: "bearer" + token
-      })
-      .then(response => {
-        this.cartProducts = response.data.cartProducts;
-      })
-      .catch(error => error);
+    this.load();
   }
 };
 </script>

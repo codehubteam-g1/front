@@ -1,5 +1,5 @@
 <template>
-  <div class="card" style="margin: 20px 0px 20px 0px;">
+  <div v-if="!hidden" class="card" style="margin: 20px 0px 20px 0px;">
     <div class="card-content" style="padding-left: 30px">
       <div class="media">
         <div class="media-content">
@@ -38,7 +38,8 @@ import axios from "axios";
 export default {
   data() {
     return {
-      product: {}
+      product: {},
+      hidden: false
     };
   },
   methods: {
@@ -54,11 +55,7 @@ export default {
           { Authorization: "bearer" + token }
         )
         .then(response2 => {
-          this.$router.go({ path: '/shoppingCart', force: true })
-          this.$toast.success("Se ha agregado al carrito", {
-            duration: 1000,
-            position: "top-right"
-          });
+          this.$emit("reload");
         })
         .catch(error => {
           this.$toast.error("Error", {
@@ -79,7 +76,7 @@ export default {
           { Authorization: "bearer" + token }
         )
         .then(response2 => {
-          this.$router.go({ path: '/shoppingCart', force: true })
+          this.$emit("reload");
           this.$toast.info("Se ha eliminado del carrito", {
             duration: 1000,
             position: "top-right"
@@ -104,7 +101,7 @@ export default {
           { Authorization: "bearer" + token }
         )
         .then(response2 => {
-          this.$router.go({ path: '/shoppingCart', force: true })
+          this.$emit("reload");
           this.$toast.success("Se ha agregado al carrito", {
             duration: 1000,
             position: "top-right"
@@ -133,7 +130,10 @@ export default {
       .then(response => {
         this.product = response.data.product;
       })
-      .catch(error => error);
+      .catch(error => {
+        this.hidden = true;
+        return error;
+      });
   },
 
   props: ["cartProduct"]
