@@ -12,7 +12,7 @@
           <div class="navbar-item" style="padding: 0px 0px 0px 0px">
             <div style="text-align: center;">
               <nuxt-link to="/">
-                <img src="../static/rappi-logo.svg" width="140" />
+                <img v-bind:src="bucketUrl+'general/rappi-logo.svg'" width="140" />
               </nuxt-link>
             </div>
           </div>
@@ -98,7 +98,7 @@
             <div class="navbar-item">
               <nuxt-link to="/shoppingCart">
                 <div style="padding: 0px 15px 0px 10px;">
-                  <img src="~/static/shopping-bag.svg" title="Bolsa de compras" width="60px" alt />
+                  <img v-bind:src="bucketUrl+'general/shopping-bag.svg'" title="Bolsa de compras" width="60px" alt />
                 </div>
               </nuxt-link>
             </div>
@@ -137,7 +137,8 @@ export default {
       selectedAddress: { address: "Ingresa tu dirección" },
       unselectedAddresses: [],
       insertedAddress: "",
-      insertedTag: ""
+      insertedTag: "",
+      bucketUrl: process.env.bucketUrl
     };
   },
 

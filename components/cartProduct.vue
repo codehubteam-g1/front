@@ -17,7 +17,7 @@
 
         <div class="media-right">
           <figure class="image">
-            <img style="height: 200px; width: 200px" v-bind:src="product.pictureUrl" />
+            <img style="height: 200px; width: 200px" v-bind:src="bucketUrl+product.pictureUrl" />
           </figure>
         </div>
       </div>
@@ -39,7 +39,8 @@ export default {
   data() {
     return {
       product: {},
-      hidden: false
+      hidden: false,
+      bucketUrl: process.env.bucketUrl
     };
   },
   methods: {

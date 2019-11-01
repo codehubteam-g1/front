@@ -2,7 +2,7 @@
   <div id="third-level-container">
     <div id="registration-container" >
       <div id="logo-container">
-        <img id="logo" src="../static/rappi-logo.svg" alt="Logo de Rappi">
+        <img id="logo" v-bind:src="bucketUrl+'general/rappi-logo.svg'" alt="Logo de Rappi">
       </div>
       <signupForm v-if="signupOption"/>
       <loginForm v-if="loginOption"/>
@@ -33,7 +33,8 @@ export default {
   data () {
     return {
       signupOption: false,
-      loginOption: true
+      loginOption: true,
+      bucketUrl: process.env.bucketUrl
     }
   },
   components: {

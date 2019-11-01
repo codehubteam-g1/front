@@ -17,7 +17,7 @@
 
         <div class="media-right">
           <figure class="image">
-            <img style="height: 200px; width: 200px" v-bind:src="product.pictureUrl" />
+            <img style="height: 200px; width: 200px" v-bind:src="bucketUrl+product.pictureUrl" />
           </figure>
         </div>
       </div>
@@ -36,7 +36,8 @@ export default {
   data() {
     return {
       score: (Math.random() + 3.6).toFixed(1),
-      number: Math.ceil(Math.random() * 10) * 50
+      number: Math.ceil(Math.random() * 10) * 50,
+      bucketUrl: process.env.bucketUrl
     };
   },
   methods: {

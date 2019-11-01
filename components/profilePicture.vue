@@ -1,6 +1,6 @@
 <template>
   <div style="margin-left: auto; margin-right: auto;" class="image-cropper">
-    <img v-bind:src="profilePictureUrl" alt="Foto de perfil" class="image" />
+    <img v-bind:src="bucketUrl+profilePictureUrl" alt="Foto de perfil" class="image" />
   </div>
 </template>
 
@@ -10,8 +10,9 @@ import axios from "axios";
 export default {
   data() {
     return {
-      profilePictureUrlDefault: "/profile-picture.svg",
-      profilePictureUrl: ""
+      profilePictureUrlDefault: "general/profile-picture.svg",
+      profilePictureUrl: "",
+      bucketUrl: process.env.bucketUrl
     };
   },
   methods: {

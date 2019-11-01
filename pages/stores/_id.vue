@@ -3,7 +3,7 @@
     <navigationBar />
     <div style="padding: 6.25em 0px 0px 0px">
       <div style="height: 250px; overflow: hidden; display: flex; align-items: center;">
-        <img style="width: 100%;" v-bind:src="store.coverPictureUrl"/>
+        <img style="width: 100%;" v-bind:src="bucketUrl+store.coverPictureUrl"/>
         <div class="card" style="position: absolute; padding-left: 30px">
           <div class="card-content">
             <div class="media">
@@ -18,7 +18,7 @@
 
               <div class="media-right">
                 <figure class="image is-64x64">
-                  <img v-bind:src="store.logoUrl" />
+                  <img v-bind:src="bucketUrl+store.logoUrl" />
                 </figure>
               </div>
             </div>
@@ -61,7 +61,8 @@ export default {
       score: (Math.random() + 3.6).toFixed(1),
       number: Math.ceil(Math.random() * 10) * 50,
       store: [],
-      storeId: null
+      storeId: null,
+      bucketUrl: process.env.bucketUrl
     };
   },
   components: {

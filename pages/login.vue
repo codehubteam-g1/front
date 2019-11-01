@@ -4,7 +4,7 @@
     <div id="first-level-container">
       <div id="second-level-container-left">
         <div id="app-image-container">
-          <img src="~/static/background-app-image.webp" />
+          <img v-bind:src="bucketUrl+'general/background-app-image.webp'" />
         </div>
       </div>
 
@@ -19,6 +19,13 @@
 import registrationForm from "~/components/registrationForm";
 
 export default {
+
+  data(){
+    return {
+      bucketUrl: process.env.bucketUrl
+    }
+  },
+
   components: {
     registrationForm
   }

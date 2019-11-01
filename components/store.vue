@@ -3,7 +3,7 @@
     <div class="card" style="margin: 20px 0px 20px 0px;">
       <div class="card-image">
         <figure class="image is-2by1">
-          <img v-bind:src="store.coverPictureUrl" />
+          <img v-bind:src="bucketUrl+store.coverPictureUrl" />
         </figure>
       </div>
 
@@ -16,7 +16,7 @@
 
           <div class="media-right">
             <figure class="image is-64x64">
-              <img v-bind:src="store.logoUrl" />
+              <img v-bind:src="bucketUrl+store.logoUrl" />
             </figure>
           </div>
         </div>
@@ -45,7 +45,8 @@ export default {
   data() {
     return {
       score: (Math.random() + 3.6).toFixed(1),
-      number: Math.ceil(Math.random() * 10) * 50
+      number: Math.ceil(Math.random() * 10) * 50,
+      bucketUrl: process.env.bucketUrl
     };
   },
   props: ["store"]
