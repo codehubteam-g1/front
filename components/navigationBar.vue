@@ -156,7 +156,7 @@ export default {
       this.selectedAddress = { address: "Ingresa tu dirección" };
       let token = this.$auth.getToken("local");
       this.$axios
-        .get(process.env.apiUrl+":3001/users/addressesByUserId", {
+        .get(process.env.apiUrl+"/users/addressesByUserId", {
           Authorization: "bearer" + token
         })
         .then(response => {
@@ -181,7 +181,7 @@ export default {
       let token = this.$auth.getToken("local");
       this.$axios
         .post(
-          process.env.apiUrl+":3001/users/createAddress",
+          process.env.apiUrl+"/users/createAddress",
           {
             address: this.insertedAddress,
             tag: this.insertedTag
@@ -206,7 +206,7 @@ export default {
       let token = this.$auth.getToken("local");
       this.$axios
         .post(
-          process.env.apiUrl+":3001/users/selectAddress",
+          process.env.apiUrl+"/users/selectAddress",
           {
             id
           },
@@ -224,7 +224,7 @@ export default {
       let token = this.$auth.getToken("local");
       this.$axios
         .post(
-          process.env.apiUrl+":3001/users/deleteAddress",
+          process.env.apiUrl+"/users/deleteAddress",
           {
             id
           },

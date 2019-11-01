@@ -51,9 +51,9 @@ export default {
     strategies: {
       local: {
         endpoints: {
-          login: { url: (process.env.API_URL || 'http://localhost')+':3001/login', method: 'post', propertyName: 'token' },
+          login: { url: (process.env.API_URL || 'http://localhost:3001')+'/login', method: 'post', propertyName: 'token' },
           logout: false,
-          user: { url: (process.env.API_URL || 'http://localhost')+':3001/users', method: 'get', propertyName: 'user' }
+          user: { url: (process.env.API_URL || 'http://localhost:3001')+'/users', method: 'get', propertyName: 'user' }
         },
         // tokenRequired: true,
         // tokenType: 'bearer'
@@ -92,7 +92,7 @@ export default {
   },
 
   env: {
-    apiUrl: process.env.API_URL || 'http://localhost',
+    apiUrl: process.env.API_URL || 'http://localhost:3001',
     bucketUrl: process.env.BUCKET_URL || 'https://storage.cloud.google.com/rappi-clone/'
   }
 }

@@ -87,7 +87,7 @@ export default {
       let token = this.$auth.getToken("local");
       this.$axios
         .post(
-          process.env.apiUrl+":3001/users/updateProfilePicture",
+          process.env.apiUrl+"/users/updateProfilePicture",
           {
             profilePictureUrl:
               "https://img.freepik.com/free-psd/young-pretty-woman-smiling-happy-taking-selfie-holding-camera_1187-11328.jpg"
@@ -106,7 +106,7 @@ export default {
       let token = this.$auth.getToken("local");
       this.$axios
         .post(
-          process.env.apiUrl+":3001/users/updateName",
+          process.env.apiUrl+"/users/updateName",
           {
             name: this.name
           },
@@ -115,7 +115,7 @@ export default {
         .then(response => {
           this.$axios
             .post(
-              process.env.apiUrl+":3001/users/updatePhone",
+              process.env.apiUrl+"/users/updatePhone",
               {
                 phone: this.phone
               },
@@ -145,7 +145,7 @@ export default {
   created: function() {
     let token = this.$auth.getToken("local");
     this.$axios
-      .get(process.env.apiUrl+":3001/users", { Authorization: "bearer" + token })
+      .get(process.env.apiUrl+"/users", { Authorization: "bearer" + token })
       .then(response => {
         this.email = response.data.user.email;
         this.name = response.data.user.name;

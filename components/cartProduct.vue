@@ -48,7 +48,7 @@ export default {
       let token = this.$auth.getToken("local");
       this.$axios
         .post(
-          process.env.apiUrl + ":3001/shoppingCarts/addCartProduct",
+          process.env.apiUrl+"/shoppingCarts/addCartProduct",
           {
             productId: this.product.id,
             quantity: 1
@@ -69,7 +69,7 @@ export default {
       let token = this.$auth.getToken("local");
       this.$axios
         .post(
-          process.env.apiUrl + ":3001/shoppingCarts/deleteCartProduct",
+          process.env.apiUrl+"/shoppingCarts/deleteCartProduct",
           {
             productId: this.product.id,
             quantity: 1
@@ -94,7 +94,7 @@ export default {
       let token = this.$auth.getToken("local");
       this.$axios
         .post(
-          process.env.apiUrl + ":3001/shoppingCarts/reduceCartProduct",
+          process.env.apiUrl+"/shoppingCarts/reduceCartProduct",
           {
             productId: this.product.id,
             quantity: 1
@@ -122,7 +122,7 @@ export default {
     this.$axios
       .get(
         process.env.apiUrl +
-          ":3001/stores/getProductByProductId/" +
+          "/stores/getProductByProductId/" +
           this.cartProduct.productId,
         {
           Authorization: "bearer" + token

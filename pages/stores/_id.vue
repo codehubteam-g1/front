@@ -75,7 +75,7 @@ export default {
     this.storeId = id
     let token = this.$auth.getToken("local");
     this.$axios
-      .get(process.env.apiUrl+`:3001/stores/getStoreByStoreId/${id}`, {
+      .get(process.env.apiUrl+`/stores/getStoreByStoreId/${id}`, {
         Authorization: "bearer" + token
       })
       .then(response => {

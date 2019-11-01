@@ -26,7 +26,7 @@ export default {
       console.log('Ejecutó load')
       let token = this.$auth.getToken("local");
       this.$axios
-        .get(process.env.apiUrl + ":3001/shoppingCarts/getCartProducts", {
+        .get(process.env.apiUrl+"/shoppingCarts/getCartProducts", {
           Authorization: "bearer" + token
         })
         .then(response => {

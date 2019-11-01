@@ -45,7 +45,7 @@ export default {
       let token = this.$auth.getToken("local");
       this.$axios
         .post(
-          process.env.apiUrl + ":3001/shoppingCarts/addCartProduct",
+          process.env.apiUrl+"/shoppingCarts/addCartProduct",
           {
             productId: this.product.id,
             quantity: 1

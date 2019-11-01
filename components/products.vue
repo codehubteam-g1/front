@@ -41,7 +41,7 @@ export default {
   created() {
     let token = this.$auth.getToken("local");
     this.$axios
-      .get(process.env.apiUrl+":3001/stores/getStoreProducts/"+this.storeId, {
+      .get(process.env.apiUrl+"/stores/getStoreProducts/"+this.storeId, {
         Authorization: "bearer" + token
       })
       .then(response => {
