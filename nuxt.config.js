@@ -93,6 +93,6 @@ export default {
 
   env: {
     apiUrl: process.env.API_URL || 'http://localhost:3001',
-    bucketUrl: process.env.BUCKET_URL || 'https://storage.cloud.google.com/rappi-clone/'
+    bucketUrl: process.env.BUCKET_URL || 'https://storage.googleapis.com/rappi-clone/'
   }
 }
